@@ -1,0 +1,822 @@
+No files changed, compilation skipped
+
+Ran 14 tests for test/unit/RaffleTest.t.sol:RaffleTest
+[FAIL. Reason: EvmError: Revert] testCantEnterWhenRaffleIsCalculationg() (gas: 99923)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [48243686] RaffleTest::setUp()
+    ├─ [24171471] → new DeployRaffle@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 120495 bytes of code
+    ├─ [23846647] DeployRaffle::run()
+    │   ├─ [5024054] → new HelperConfig@0x104fBc016F4bb334D775a19E8A6510109AC63E00
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [1396298] → new VRFCoordinatorV2Mock@0x5FbDB2315678afecb367f032d93F642f64180aa3
+    │   │   │   ├─ emit ConfigSet()
+    │   │   │   └─ ← [Return] 6624 bytes of code
+    │   │   ├─ [748026] → new LinkToken@0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266, value: 1000000000000000000000000 [1e24])
+    │   │   │   └─ ← [Return] 3276 bytes of code
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Return] 13263 bytes of code
+    │   ├─ [1121] HelperConfig::activeNetworkConfig() [staticcall]
+    │   │   └─ ← [Return] 100000000000000000 [1e17], 30, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, 0, 500000 [5e5], LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76]
+    │   ├─ [5564426] → new CreateSubscription@0x037eDa3aDB1198021A9b2e88C22B464fD38db3f3
+    │   │   └─ ← [Return] 27678 bytes of code
+    │   ├─ [52831] CreateSubscription::createSubscription(VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Creating subscription", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [46836] VRFCoordinatorV2Mock::createSubscription()
+    │   │   │   ├─ emit SubscriptionCreated(subId: 1, owner: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266)
+    │   │   │   └─ ← [Return] 1
+    │   │   ├─ [0] console::log("Your sub id is", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [0] console::log("Your sub Id: ", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 1, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]
+    │   ├─ [5761719] → new FundSubscription@0xDDc10602782af652bB913f7bdE1fD82981Db7dd9
+    │   │   └─ ← [Return] 28663 bytes of code
+    │   ├─ [6885] FundSubscription::fundSubscription(VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 1, LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Funding subscription: ", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("Using vrfCoordinator: ", VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("On ChainID: ", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [3168] VRFCoordinatorV2Mock::fundSubscription(1, 3000000000000000000 [3e18])
+    │   │   │   ├─ emit SubscriptionFunded(subId: 1, oldBalance: 0, newBalance: 3000000000000000000 [3e18])
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Stop] 
+    │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   └─ ← [Return] 
+    │   ├─ [859933] → new Raffle@0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+    │   │   └─ ← [Return] 3949 bytes of code
+    │   ├─ [0] VM::stopBroadcast()
+    │   │   └─ ← [Return] 
+    │   ├─ [6344599] → new AddConsumer@0x7FdB3132Ff7D02d8B9e221c61cC895ce9a4bb773
+    │   │   └─ ← [Return] 31573 bytes of code
+    │   ├─ [51002] AddConsumer::addConsumer(Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9], VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 1, 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Adding consumer to raffle: ", Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("Using vrfCoordinator: ", VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("On ChainID: ", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [47240] VRFCoordinatorV2Mock::addConsumer(1, Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   │   │   ├─ emit ConsumerAdded(subId: 1, consumer: Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9], HelperConfig: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    ├─ [1121] HelperConfig::activeNetworkConfig() [staticcall]
+    │   └─ ← [Return] 100000000000000000 [1e17], 30, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, 0, 500000 [5e5], LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76]
+    ├─ [0] VM::deal(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C], 10000000000000000000 [1e19])
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+  [99923] RaffleTest::testCantEnterWhenRaffleIsCalculationg()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47782] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::warp(32)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [29463] Raffle::performUpkeep(0x)
+    │   ├─ [258] VRFCoordinatorV2Mock::requestRandomWords(RandomWordsRequest({ keyHash: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, subId: 1, requestConfirmations: 3, callbackGasLimit: 500000 [5e5], numWords: 1, extraArgs: 0x92fd13380000000000000000000000000000000000000000000000000000000000000000 }))
+    │   │   └─ ← [Revert] EvmError: Revert
+    │   └─ ← [Revert] EvmError: Revert
+    └─ ← [Revert] EvmError: Revert
+
+[PASS] testCheckUpkeepReturnsFalseIfEnoughTimeHasntPassed() (gas: 74724)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [74724] RaffleTest::testCheckUpkeepReturnsFalseIfEnoughTimeHasntPassed()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47782] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::warp(30)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [3602] Raffle::checkUpkeep(0x) [staticcall]
+    │   └─ ← [Return] false, 0x307830
+    └─ ← [Stop] 
+
+[PASS] testCheckUpkeepReturnsFalseIfItHasNoBalance() (gas: 19078)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [19078] RaffleTest::testCheckUpkeepReturnsFalseIfItHasNoBalance()
+    ├─ [0] VM::warp(32)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [7612] Raffle::checkUpkeep(0x) [staticcall]
+    │   └─ ← [Return] false, 0x307830
+    └─ ← [Stop] 
+
+[FAIL. Reason: EvmError: Revert] testCheckUpkeepReturnsFalseIfRaffleNotOpen() (gas: 99935)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [48243686] RaffleTest::setUp()
+    ├─ [24171471] → new DeployRaffle@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 120495 bytes of code
+    ├─ [23846647] DeployRaffle::run()
+    │   ├─ [5024054] → new HelperConfig@0x104fBc016F4bb334D775a19E8A6510109AC63E00
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [1396298] → new VRFCoordinatorV2Mock@0x5FbDB2315678afecb367f032d93F642f64180aa3
+    │   │   │   ├─ emit ConfigSet()
+    │   │   │   └─ ← [Return] 6624 bytes of code
+    │   │   ├─ [748026] → new LinkToken@0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266, value: 1000000000000000000000000 [1e24])
+    │   │   │   └─ ← [Return] 3276 bytes of code
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Return] 13263 bytes of code
+    │   ├─ [1121] HelperConfig::activeNetworkConfig() [staticcall]
+    │   │   └─ ← [Return] 100000000000000000 [1e17], 30, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, 0, 500000 [5e5], LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76]
+    │   ├─ [5564426] → new CreateSubscription@0x037eDa3aDB1198021A9b2e88C22B464fD38db3f3
+    │   │   └─ ← [Return] 27678 bytes of code
+    │   ├─ [52831] CreateSubscription::createSubscription(VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Creating subscription", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [46836] VRFCoordinatorV2Mock::createSubscription()
+    │   │   │   ├─ emit SubscriptionCreated(subId: 1, owner: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266)
+    │   │   │   └─ ← [Return] 1
+    │   │   ├─ [0] console::log("Your sub id is", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [0] console::log("Your sub Id: ", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 1, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]
+    │   ├─ [5761719] → new FundSubscription@0xDDc10602782af652bB913f7bdE1fD82981Db7dd9
+    │   │   └─ ← [Return] 28663 bytes of code
+    │   ├─ [6885] FundSubscription::fundSubscription(VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 1, LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Funding subscription: ", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("Using vrfCoordinator: ", VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("On ChainID: ", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [3168] VRFCoordinatorV2Mock::fundSubscription(1, 3000000000000000000 [3e18])
+    │   │   │   ├─ emit SubscriptionFunded(subId: 1, oldBalance: 0, newBalance: 3000000000000000000 [3e18])
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Stop] 
+    │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   └─ ← [Return] 
+    │   ├─ [859933] → new Raffle@0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+    │   │   └─ ← [Return] 3949 bytes of code
+    │   ├─ [0] VM::stopBroadcast()
+    │   │   └─ ← [Return] 
+    │   ├─ [6344599] → new AddConsumer@0x7FdB3132Ff7D02d8B9e221c61cC895ce9a4bb773
+    │   │   └─ ← [Return] 31573 bytes of code
+    │   ├─ [51002] AddConsumer::addConsumer(Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9], VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 1, 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Adding consumer to raffle: ", Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("Using vrfCoordinator: ", VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("On ChainID: ", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [47240] VRFCoordinatorV2Mock::addConsumer(1, Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   │   │   ├─ emit ConsumerAdded(subId: 1, consumer: Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9], HelperConfig: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    ├─ [1121] HelperConfig::activeNetworkConfig() [staticcall]
+    │   └─ ← [Return] 100000000000000000 [1e17], 30, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, 0, 500000 [5e5], LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76]
+    ├─ [0] VM::deal(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C], 10000000000000000000 [1e19])
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+  [99935] RaffleTest::testCheckUpkeepReturnsFalseIfRaffleNotOpen()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47782] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::warp(32)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [29463] Raffle::performUpkeep(0x)
+    │   ├─ [258] VRFCoordinatorV2Mock::requestRandomWords(RandomWordsRequest({ keyHash: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, subId: 1, requestConfirmations: 3, callbackGasLimit: 500000 [5e5], numWords: 1, extraArgs: 0x92fd13380000000000000000000000000000000000000000000000000000000000000000 }))
+    │   │   └─ ← [Revert] EvmError: Revert
+    │   └─ ← [Revert] EvmError: Revert
+    └─ ← [Revert] EvmError: Revert
+
+[PASS] testCheckUpkeepReturnsTrueWhenParametersAreGood() (gas: 74721)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [74721] RaffleTest::testCheckUpkeepReturnsTrueWhenParametersAreGood()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47782] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::warp(32)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [3617] Raffle::checkUpkeep(0x) [staticcall]
+    │   └─ ← [Return] true, 0x307830
+    └─ ← [Stop] 
+
+[PASS] testEmitsEventOnEntrance() (gas: 68729)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [68729] RaffleTest::testEmitsEventOnEntrance()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectEmit(true, false, false, false, Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   └─ ← [Return] 
+    ├─ emit EnteredRaffle(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    ├─ [47782] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    └─ ← [Stop] 
+
+[PASS] testFulfillRandomWordsCanOnlyBeCalledAfterPerformUpkeep(uint256) (runs: 256, μ: 80596, ~: 80596)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [80596] RaffleTest::testFulfillRandomWordsCanOnlyBeCalledAfterPerformUpkeep(1)
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47782] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::warp(32)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(nonexistent request)
+    │   └─ ← [Return] 
+    ├─ [4973] VRFCoordinatorV2Mock::fulfillRandomWords(1, Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   └─ ← [Revert] revert: nonexistent request
+    └─ ← [Stop] 
+
+[FAIL. Reason: EvmError: Revert] testFulfillRandomWordsPicksAWinnerResetsAndSendsMoney() (gas: 261737)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [48243686] RaffleTest::setUp()
+    ├─ [24171471] → new DeployRaffle@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 120495 bytes of code
+    ├─ [23846647] DeployRaffle::run()
+    │   ├─ [5024054] → new HelperConfig@0x104fBc016F4bb334D775a19E8A6510109AC63E00
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [1396298] → new VRFCoordinatorV2Mock@0x5FbDB2315678afecb367f032d93F642f64180aa3
+    │   │   │   ├─ emit ConfigSet()
+    │   │   │   └─ ← [Return] 6624 bytes of code
+    │   │   ├─ [748026] → new LinkToken@0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266, value: 1000000000000000000000000 [1e24])
+    │   │   │   └─ ← [Return] 3276 bytes of code
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Return] 13263 bytes of code
+    │   ├─ [1121] HelperConfig::activeNetworkConfig() [staticcall]
+    │   │   └─ ← [Return] 100000000000000000 [1e17], 30, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, 0, 500000 [5e5], LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76]
+    │   ├─ [5564426] → new CreateSubscription@0x037eDa3aDB1198021A9b2e88C22B464fD38db3f3
+    │   │   └─ ← [Return] 27678 bytes of code
+    │   ├─ [52831] CreateSubscription::createSubscription(VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Creating subscription", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [46836] VRFCoordinatorV2Mock::createSubscription()
+    │   │   │   ├─ emit SubscriptionCreated(subId: 1, owner: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266)
+    │   │   │   └─ ← [Return] 1
+    │   │   ├─ [0] console::log("Your sub id is", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [0] console::log("Your sub Id: ", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 1, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]
+    │   ├─ [5761719] → new FundSubscription@0xDDc10602782af652bB913f7bdE1fD82981Db7dd9
+    │   │   └─ ← [Return] 28663 bytes of code
+    │   ├─ [6885] FundSubscription::fundSubscription(VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 1, LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Funding subscription: ", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("Using vrfCoordinator: ", VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("On ChainID: ", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [3168] VRFCoordinatorV2Mock::fundSubscription(1, 3000000000000000000 [3e18])
+    │   │   │   ├─ emit SubscriptionFunded(subId: 1, oldBalance: 0, newBalance: 3000000000000000000 [3e18])
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Stop] 
+    │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   └─ ← [Return] 
+    │   ├─ [859933] → new Raffle@0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+    │   │   └─ ← [Return] 3949 bytes of code
+    │   ├─ [0] VM::stopBroadcast()
+    │   │   └─ ← [Return] 
+    │   ├─ [6344599] → new AddConsumer@0x7FdB3132Ff7D02d8B9e221c61cC895ce9a4bb773
+    │   │   └─ ← [Return] 31573 bytes of code
+    │   ├─ [51002] AddConsumer::addConsumer(Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9], VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 1, 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Adding consumer to raffle: ", Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("Using vrfCoordinator: ", VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("On ChainID: ", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [47240] VRFCoordinatorV2Mock::addConsumer(1, Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   │   │   ├─ emit ConsumerAdded(subId: 1, consumer: Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9], HelperConfig: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    ├─ [1121] HelperConfig::activeNetworkConfig() [staticcall]
+    │   └─ ← [Return] 100000000000000000 [1e17], 30, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, 0, 500000 [5e5], LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76]
+    ├─ [0] VM::deal(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C], 10000000000000000000 [1e19])
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+  [261737] RaffleTest::testFulfillRandomWordsPicksAWinnerResetsAndSendsMoney()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47782] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::warp(32)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [0] VM::deal(0x0000000000000000000000000000000000000001, 10000000000000000000 [1e19])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(0x0000000000000000000000000000000000000001)
+    │   └─ ← [Return] 
+    ├─ [23882] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: 0x0000000000000000000000000000000000000001)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::deal(0x0000000000000000000000000000000000000002, 10000000000000000000 [1e19])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(0x0000000000000000000000000000000000000002)
+    │   └─ ← [Return] 
+    ├─ [23882] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: 0x0000000000000000000000000000000000000002)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::deal(0x0000000000000000000000000000000000000003, 10000000000000000000 [1e19])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(0x0000000000000000000000000000000000000003)
+    │   └─ ← [Return] 
+    ├─ [23882] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: 0x0000000000000000000000000000000000000003)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::deal(0x0000000000000000000000000000000000000004, 10000000000000000000 [1e19])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(0x0000000000000000000000000000000000000004)
+    │   └─ ← [Return] 
+    ├─ [23882] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: 0x0000000000000000000000000000000000000004)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::deal(0x0000000000000000000000000000000000000005, 10000000000000000000 [1e19])
+    │   └─ ← [Return] 
+    ├─ [0] VM::prank(0x0000000000000000000000000000000000000005)
+    │   └─ ← [Return] 
+    ├─ [23882] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: 0x0000000000000000000000000000000000000005)
+    │   └─ ← [Stop] 
+    ├─ [0] VM::recordLogs()
+    │   └─ ← [Return] 
+    ├─ [29463] Raffle::performUpkeep(0x)
+    │   ├─ [258] VRFCoordinatorV2Mock::requestRandomWords(RandomWordsRequest({ keyHash: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, subId: 1, requestConfirmations: 3, callbackGasLimit: 500000 [5e5], numWords: 1, extraArgs: 0x92fd13380000000000000000000000000000000000000000000000000000000000000000 }))
+    │   │   └─ ← [Revert] EvmError: Revert
+    │   └─ ← [Revert] EvmError: Revert
+    └─ ← [Revert] EvmError: Revert
+
+[FAIL. Reason: EvmError: Revert] testPerformUpkeepCanOnlyRunIfCheckUpkeepIsTrue() (gas: 99924)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [48243686] RaffleTest::setUp()
+    ├─ [24171471] → new DeployRaffle@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 120495 bytes of code
+    ├─ [23846647] DeployRaffle::run()
+    │   ├─ [5024054] → new HelperConfig@0x104fBc016F4bb334D775a19E8A6510109AC63E00
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [1396298] → new VRFCoordinatorV2Mock@0x5FbDB2315678afecb367f032d93F642f64180aa3
+    │   │   │   ├─ emit ConfigSet()
+    │   │   │   └─ ← [Return] 6624 bytes of code
+    │   │   ├─ [748026] → new LinkToken@0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266, value: 1000000000000000000000000 [1e24])
+    │   │   │   └─ ← [Return] 3276 bytes of code
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Return] 13263 bytes of code
+    │   ├─ [1121] HelperConfig::activeNetworkConfig() [staticcall]
+    │   │   └─ ← [Return] 100000000000000000 [1e17], 30, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, 0, 500000 [5e5], LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76]
+    │   ├─ [5564426] → new CreateSubscription@0x037eDa3aDB1198021A9b2e88C22B464fD38db3f3
+    │   │   └─ ← [Return] 27678 bytes of code
+    │   ├─ [52831] CreateSubscription::createSubscription(VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Creating subscription", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [46836] VRFCoordinatorV2Mock::createSubscription()
+    │   │   │   ├─ emit SubscriptionCreated(subId: 1, owner: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266)
+    │   │   │   └─ ← [Return] 1
+    │   │   ├─ [0] console::log("Your sub id is", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [0] console::log("Your sub Id: ", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 1, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]
+    │   ├─ [5761719] → new FundSubscription@0xDDc10602782af652bB913f7bdE1fD82981Db7dd9
+    │   │   └─ ← [Return] 28663 bytes of code
+    │   ├─ [6885] FundSubscription::fundSubscription(VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 1, LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Funding subscription: ", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("Using vrfCoordinator: ", VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("On ChainID: ", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [3168] VRFCoordinatorV2Mock::fundSubscription(1, 3000000000000000000 [3e18])
+    │   │   │   ├─ emit SubscriptionFunded(subId: 1, oldBalance: 0, newBalance: 3000000000000000000 [3e18])
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Stop] 
+    │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   └─ ← [Return] 
+    │   ├─ [859933] → new Raffle@0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+    │   │   └─ ← [Return] 3949 bytes of code
+    │   ├─ [0] VM::stopBroadcast()
+    │   │   └─ ← [Return] 
+    │   ├─ [6344599] → new AddConsumer@0x7FdB3132Ff7D02d8B9e221c61cC895ce9a4bb773
+    │   │   └─ ← [Return] 31573 bytes of code
+    │   ├─ [51002] AddConsumer::addConsumer(Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9], VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 1, 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Adding consumer to raffle: ", Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("Using vrfCoordinator: ", VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("On ChainID: ", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [47240] VRFCoordinatorV2Mock::addConsumer(1, Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   │   │   ├─ emit ConsumerAdded(subId: 1, consumer: Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9], HelperConfig: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    ├─ [1121] HelperConfig::activeNetworkConfig() [staticcall]
+    │   └─ ← [Return] 100000000000000000 [1e17], 30, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, 0, 500000 [5e5], LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76]
+    ├─ [0] VM::deal(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C], 10000000000000000000 [1e19])
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+  [99924] RaffleTest::testPerformUpkeepCanOnlyRunIfCheckUpkeepIsTrue()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47782] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::warp(32)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [29463] Raffle::performUpkeep(0x)
+    │   ├─ [258] VRFCoordinatorV2Mock::requestRandomWords(RandomWordsRequest({ keyHash: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, subId: 1, requestConfirmations: 3, callbackGasLimit: 500000 [5e5], numWords: 1, extraArgs: 0x92fd13380000000000000000000000000000000000000000000000000000000000000000 }))
+    │   │   └─ ← [Revert] EvmError: Revert
+    │   └─ ← [Revert] EvmError: Revert
+    └─ ← [Revert] EvmError: Revert
+
+[PASS] testPerformUpkeepRevertsIfCheckUpkeepIsFalse() (gas: 16401)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [16401] RaffleTest::testPerformUpkeepRevertsIfCheckUpkeepIsFalse()
+    ├─ [0] VM::expectRevert(Raffle_UpkeepNotNeeded(0, 0, 0))
+    │   └─ ← [Return] 
+    ├─ [7631] Raffle::performUpkeep(0x)
+    │   └─ ← [Revert] Raffle_UpkeepNotNeeded(0, 0, 0)
+    └─ ← [Stop] 
+
+[FAIL. Reason: EvmError: Revert] testPerformUpkeepUpdatesRaffleStateAndEmitsRequestId() (gas: 100328)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [48243686] RaffleTest::setUp()
+    ├─ [24171471] → new DeployRaffle@0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f
+    │   └─ ← [Return] 120495 bytes of code
+    ├─ [23846647] DeployRaffle::run()
+    │   ├─ [5024054] → new HelperConfig@0x104fBc016F4bb334D775a19E8A6510109AC63E00
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [1396298] → new VRFCoordinatorV2Mock@0x5FbDB2315678afecb367f032d93F642f64180aa3
+    │   │   │   ├─ emit ConfigSet()
+    │   │   │   └─ ← [Return] 6624 bytes of code
+    │   │   ├─ [748026] → new LinkToken@0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266, value: 1000000000000000000000000 [1e24])
+    │   │   │   └─ ← [Return] 3276 bytes of code
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Return] 13263 bytes of code
+    │   ├─ [1121] HelperConfig::activeNetworkConfig() [staticcall]
+    │   │   └─ ← [Return] 100000000000000000 [1e17], 30, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, 0, 500000 [5e5], LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76]
+    │   ├─ [5564426] → new CreateSubscription@0x037eDa3aDB1198021A9b2e88C22B464fD38db3f3
+    │   │   └─ ← [Return] 27678 bytes of code
+    │   ├─ [52831] CreateSubscription::createSubscription(VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Creating subscription", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [46836] VRFCoordinatorV2Mock::createSubscription()
+    │   │   │   ├─ emit SubscriptionCreated(subId: 1, owner: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266)
+    │   │   │   └─ ← [Return] 1
+    │   │   ├─ [0] console::log("Your sub id is", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [0] console::log("Your sub Id: ", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   └─ ← [Return] 1, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]
+    │   ├─ [5761719] → new FundSubscription@0xDDc10602782af652bB913f7bdE1fD82981Db7dd9
+    │   │   └─ ← [Return] 28663 bytes of code
+    │   ├─ [6885] FundSubscription::fundSubscription(VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 1, LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Funding subscription: ", 1) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("Using vrfCoordinator: ", VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("On ChainID: ", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [3168] VRFCoordinatorV2Mock::fundSubscription(1, 3000000000000000000 [3e18])
+    │   │   │   ├─ emit SubscriptionFunded(subId: 1, oldBalance: 0, newBalance: 3000000000000000000 [3e18])
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Stop] 
+    │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   └─ ← [Return] 
+    │   ├─ [859933] → new Raffle@0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+    │   │   └─ ← [Return] 3949 bytes of code
+    │   ├─ [0] VM::stopBroadcast()
+    │   │   └─ ← [Return] 
+    │   ├─ [6344599] → new AddConsumer@0x7FdB3132Ff7D02d8B9e221c61cC895ce9a4bb773
+    │   │   └─ ← [Return] 31573 bytes of code
+    │   ├─ [51002] AddConsumer::addConsumer(Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9], VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 1, 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76])
+    │   │   ├─ [0] console::log("Adding consumer to raffle: ", Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("Using vrfCoordinator: ", VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] console::log("On ChainID: ", 31337 [3.133e4]) [staticcall]
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::startBroadcast(<pk>)
+    │   │   │   └─ ← [Return] 
+    │   │   ├─ [47240] VRFCoordinatorV2Mock::addConsumer(1, Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   │   │   ├─ emit ConsumerAdded(subId: 1, consumer: Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9])
+    │   │   │   └─ ← [Stop] 
+    │   │   ├─ [0] VM::stopBroadcast()
+    │   │   │   └─ ← [Return] 
+    │   │   └─ ← [Stop] 
+    │   └─ ← [Return] Raffle: [0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9], HelperConfig: [0x104fBc016F4bb334D775a19E8A6510109AC63E00]
+    ├─ [1121] HelperConfig::activeNetworkConfig() [staticcall]
+    │   └─ ← [Return] 100000000000000000 [1e17], 30, VRFCoordinatorV2Mock: [0x5FbDB2315678afecb367f032d93F642f64180aa3], 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, 0, 500000 [5e5], LinkToken: [0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512], 77814517325470205911140941194401928579557062014761831930645393041380819009408 [7.781e76]
+    ├─ [0] VM::deal(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C], 10000000000000000000 [1e19])
+    │   └─ ← [Return] 
+    └─ ← [Stop] 
+
+  [100328] RaffleTest::testPerformUpkeepUpdatesRaffleStateAndEmitsRequestId()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47782] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [0] VM::warp(32)
+    │   └─ ← [Return] 
+    ├─ [0] VM::roll(2)
+    │   └─ ← [Return] 
+    ├─ [0] VM::recordLogs()
+    │   └─ ← [Return] 
+    ├─ [29463] Raffle::performUpkeep(0x)
+    │   ├─ [258] VRFCoordinatorV2Mock::requestRandomWords(RandomWordsRequest({ keyHash: 0x787d74caea10b2b357790d5b5247c2f63d1d91572a9846f780606e4d953677ae, subId: 1, requestConfirmations: 3, callbackGasLimit: 500000 [5e5], numWords: 1, extraArgs: 0x92fd13380000000000000000000000000000000000000000000000000000000000000000 }))
+    │   │   └─ ← [Revert] EvmError: Revert
+    │   └─ ← [Revert] EvmError: Revert
+    └─ ← [Revert] EvmError: Revert
+
+[PASS] testRaffleInitializesInOpenState() (gas: 7775)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [7775] RaffleTest::testRaffleInitializesInOpenState()
+    ├─ [2418] Raffle::getRaffleState() [staticcall]
+    │   └─ ← [Return] 0
+    └─ ← [Stop] 
+
+[PASS] testRaffleRecordsPlayerWhenTheyEnter() (gas: 68252)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [68252] RaffleTest::testRaffleRecordsPlayerWhenTheyEnter()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [47782] Raffle::enterRaffle{value: 100000000000000000}()
+    │   ├─ emit EnteredRaffle(player: player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Stop] 
+    ├─ [685] Raffle::getPlayer(0) [staticcall]
+    │   └─ ← [Return] player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C]
+    └─ ← [Stop] 
+
+[PASS] testRaffleRevertsWhenYouDontPayEnough() (gas: 10851)
+Logs:
+  Creating subscription 31337
+  Your sub id is 1
+  Your sub Id:  1
+  Funding subscription:  1
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+  Adding consumer to raffle:  0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9
+  Using vrfCoordinator:  0x5FbDB2315678afecb367f032d93F642f64180aa3
+  On ChainID:  31337
+
+Traces:
+  [10851] RaffleTest::testRaffleRevertsWhenYouDontPayEnough()
+    ├─ [0] VM::prank(player: [0x44E97aF4418b7a17AABD8090bEA0A471a366305C])
+    │   └─ ← [Return] 
+    ├─ [0] VM::expectRevert(Raffle__NotEnoughEthSent())
+    │   └─ ← [Return] 
+    ├─ [231] Raffle::enterRaffle()
+    │   └─ ← [Revert] Raffle__NotEnoughEthSent()
+    └─ ← [Stop] 
+
+Suite result: FAILED. 9 passed; 5 failed; 0 skipped; finished in 44.60ms (38.09ms CPU time)
+
+Ran 1 test suite in 1.89s (44.60ms CPU time): 9 tests passed, 5 failed, 0 skipped (14 total tests)
+
+Failing tests:
+Encountered 5 failing tests in test/unit/RaffleTest.t.sol:RaffleTest
+[FAIL. Reason: EvmError: Revert] testCantEnterWhenRaffleIsCalculationg() (gas: 99923)
+[FAIL. Reason: EvmError: Revert] testCheckUpkeepReturnsFalseIfRaffleNotOpen() (gas: 99935)
+[FAIL. Reason: EvmError: Revert] testFulfillRandomWordsPicksAWinnerResetsAndSendsMoney() (gas: 261737)
+[FAIL. Reason: EvmError: Revert] testPerformUpkeepCanOnlyRunIfCheckUpkeepIsTrue() (gas: 99924)
+[FAIL. Reason: EvmError: Revert] testPerformUpkeepUpdatesRaffleStateAndEmitsRequestId() (gas: 100328)
+
+Encountered a total of 5 failing tests, 9 tests succeeded
